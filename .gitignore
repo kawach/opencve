@@ -34,3 +34,6 @@ web/.pytest_cache/
 web/opencve/settings.py
 web/emails/
 docker/config/opencve.conf.template
+/data/
+/docker-compose.yml
+/web/staticfiles/

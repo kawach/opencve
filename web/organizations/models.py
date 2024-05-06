@@ -16,9 +16,13 @@ class Organization(BaseModel):
             ),
         ],
     )
-
     # Relationships
     members = models.ManyToManyField(User, through="Membership")
+
+    @property
+    def assets(self):
+        from assets.models import Asset
+        return models.ManyToManyField(Asset, through="AssetOrganization", null=True, blank=True)
 
     class Meta:
         db_table = "opencve_organizations"

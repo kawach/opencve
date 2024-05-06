@@ -15,6 +15,16 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/skin-blue.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/adminlte.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.rainbowJSON.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/spectrum.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/select2.full.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/chart.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/custom.js' %}" type="text/javascript"></script>
+
     </head>
     <body class="hold-transition skin-blue skin-opencve sidebar-mini">
     {% load opencve_extras %}
@@ -114,13 +124,6 @@
             const SUBSCRIBE_URL = "{% url 'subscribe' %}";
             const CHANGE_ORGANIZATION_URL = "{% url 'change_organization' %}";
         </script>
-        <script src="{% static 'js/jquery.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/adminlte.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/jquery.rainbowJSON.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/spectrum.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/select2.full.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/chart.min.js' %}" type="text/javascript"></script>
-        <script src="{% static 'js/custom.js' %}" type="text/javascript"></script>
+
     </body>
 </html>

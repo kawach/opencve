@@ -11,6 +11,7 @@ from opencve.commands import BaseCommand
 
 class Command(BaseCommand):
     KB_PATH = settings.KB_REPO_PATH
+    print(KB_PATH)
     CVE_UPSERT_PROCEDURE = """
     CALL cve_upsert(
         %(cve)s,
@@ -32,7 +33,7 @@ class Command(BaseCommand):
         return pathlib.Path.exists(pathlib.Path(self.KB_PATH))
 
     def insert_cve(self, path):
-        with open(path) as f:
+        with open(path, encoding='utf-8') as f:
             cve = json.load(f)
 
         cve_data = cve.get("opencve")

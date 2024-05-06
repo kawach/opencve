@@ -15,7 +15,7 @@ from organizations.forms import MembershipForm, OrganizationForm
 from organizations.mixins import OrganizationIsOwnerMixin
 from organizations.models import Membership, Organization
 from users.models import User
-
+from assets.models import Asset
 
 class OrganizationsListView(LoginRequiredMixin, ListView):
     context_object_name = "memberships"
@@ -73,6 +73,7 @@ class OrganizationEditView(
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["members"] = Membership.objects.filter(organization=self.get_object())
+        context["assets"] = Asset.objects.filter(organization=self.get_object())
         context["members_form"] = MembershipForm(initial={"role": Membership.MEMBER})
         return context
 

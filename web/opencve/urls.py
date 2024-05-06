@@ -8,7 +8,7 @@ from cves.resources import (CveViewSet, ProductCveViewSet, ProductViewSet,
                             WeaknessCveViewSet, WeaknessViewSet)
 from organizations.resources import OrganizationViewSet
 from projects.resources import ProjectCveViewSet, ProjectViewSet
-
+from assets.resources import AssetViewSet
 # API Router
 router = routers.SimpleRouter()
 router.register(r"cve", CveViewSet, basename="cve")
@@ -41,13 +41,17 @@ products_cves_router = routers.NestedSimpleRouter(
 )
 products_cves_router.register(f"cve", ProductCveViewSet, basename="product-cves")
 
+router.register(r"assets", AssetViewSet, basename="asset")
+assets_router = routers.NestedSimpleRouter(router, r"assets", lookup="asset")
 
 urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
+    path('select2/', include('django_select2.urls')),
     path("", include("changes.urls")),
     path("", include("cves.urls")),
     path("", include("organizations.urls")),
     path("", include("projects.urls")),
+    path("", include("assets.urls")),
     path("account/", include("allauth.urls")),
     path(r"login/", LoginView.as_view(), name="account_login"),
     path(r"signup/", SignupView.as_view(), name="account_signup"),
